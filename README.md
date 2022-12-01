@@ -15,5 +15,5 @@ The solutions are written in [Rust](https://www.rust-lang.org/) a high performan
 
 | Day | Story | Solution | Part1 | Part2 |
 | --- | --- | --- | --- | --- |
-| Dec-1 | [Calorie Counting](https://adventofcode.com/2021/day/1) | [Day1](./src/day1) 🚢 |  |  | 
+| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1) 🚢 | ⭐  | ⭐  | 
 
