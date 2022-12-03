@@ -7,4 +7,8 @@ fn main() {
     // Day2 Solution
     let mut day2 = Day2::from_input_file(&format!("./src/day2/{}", INPUT_FILE_NAME));
     println!("part-1:{},part-2:{}", day2.part1(), day2.part2());
+
+    // Day3 Solution
+    let mut day3 = Day3::from_input_file(&format!("./src/day3/{}", INPUT_FILE_NAME));
+    println!("part-1:{},part-2:{}", day3.part1(), day3.part2());
 }
