@@ -15,6 +15,6 @@ The solutions are written in [Rust](https://www.rust-lang.org/) a high performan
 
 | Day | Story | Solution | Part1 | Part2 |
 | --- | --- | --- | --- | --- |
-| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1) 🚢 | ⭐  | ⭐  | 
-| Dec-1 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2) 🚢 |   |   | 
+| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1) 🚢 | ⭐ | ⭐  | 
+| Dec-2 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2) 🚢 | ⭐ | ⭐ | 
 
