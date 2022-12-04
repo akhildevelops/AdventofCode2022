@@ -15,7 +15,7 @@ impl FromStr for Day1 {
         Self {
             food: input
                 .split("\n\n")
-                .map(|x| x.split("\n").map(|x| x.parse().unwrap_or(0)).sum())
+                .map(|x| x.split('\n').map(|x| x.parse().unwrap_or(0)).sum())
                 .collect(),
         }
     }

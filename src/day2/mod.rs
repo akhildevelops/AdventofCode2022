@@ -37,9 +37,9 @@ impl FromStr for Day2 {
     fn from_input(input: String) -> Self {
         Self {
             strategy: input
-                .strip_suffix("\n")
+                .strip_suffix('\n')
                 .unwrap()
-                .split("\n")
+                .split('\n')
                 .map(|x| {
                     let mut states = x.chars();
                     let opp_state = states.next().unwrap() as u32 - 65;

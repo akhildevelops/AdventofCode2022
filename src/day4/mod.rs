@@ -7,13 +7,13 @@ impl FromStr for Day4 {
     fn from_input(contents: String) -> Self {
         Day4 {
             sections: contents
-                .strip_suffix("\n")
+                .strip_suffix('\n')
                 .unwrap_or(&contents)
-                .split("\n")
+                .split('\n')
                 .map(|x| {
                     let sections = x
-                        .split(",")
-                        .flat_map(|x| x.split("-").map(|x| x.parse::<i32>().unwrap()))
+                        .split(',')
+                        .flat_map(|x| x.split('-').map(|x| x.parse::<i32>().unwrap()))
                         .collect::<Vec<i32>>();
                     match &sections[..] {
                         &[first, second, third, fourth] => (first, second, third, fourth),
@@ -30,25 +30,13 @@ impl Day<u32, u32> for Day4 {
     fn part1(&mut self) -> u32 {
         self.sections
             .iter()
-            .map(|x| {
-                if (x.0 <= x.2 && x.3 <= x.1) | (x.0 >= x.2 && x.3 >= x.1) {
-                    1
-                } else {
-                    0
-                }
-            })
+            .map(|x| u32::from((x.0 <= x.2 && x.3 <= x.1) | (x.0 >= x.2 && x.3 >= x.1)))
             .sum()
     }
     fn part2(&mut self) -> u32 {
         self.sections
             .iter()
-            .map(|x| {
-                if (x.0 <= x.2 && x.2 <= x.1) | (x.0 >= x.2 && x.0 <= x.3) {
-                    1
-                } else {
-                    0
-                }
-            })
+            .map(|x| u32::from((x.0 <= x.2 && x.2 <= x.1) | (x.0 >= x.2 && x.0 <= x.3)))
             .sum()
     }
 }

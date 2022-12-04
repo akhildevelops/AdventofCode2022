@@ -21,9 +21,9 @@ impl FromStr for Day3 {
     fn from_input(input: String) -> Self {
         Self {
             rucksacks: input
-                .strip_suffix("\n")
+                .strip_suffix('\n')
                 .unwrap()
-                .split("\n")
+                .split('\n')
                 .map(|x| x.to_string())
                 .collect(),
         }
