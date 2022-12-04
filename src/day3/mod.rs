@@ -1,8 +1,7 @@
-use crate::{Day, FromFile};
+use crate::{Day, FromFile, FromStr};
 use std::collections::hash_map::RandomState;
 use std::collections::hash_set::Intersection;
 use std::collections::HashSet;
-use std::fs;
 pub struct Day3 {
     rucksacks: Vec<String>,
 }
@@ -18,11 +17,10 @@ fn score_from_sets(sets: Intersection<char, RandomState>) -> u32 {
     .sum::<u32>()
 }
 
-impl FromFile for Day3 {
-    fn from_input_file(path: &str) -> Self {
-        let contents = fs::read_to_string(path).unwrap();
-        Day3 {
-            rucksacks: contents
+impl FromStr for Day3 {
+    fn from_input(input: String) -> Self {
+        Self {
+            rucksacks: input
                 .strip_suffix("\n")
                 .unwrap()
                 .split("\n")
@@ -31,6 +29,8 @@ impl FromFile for Day3 {
         }
     }
 }
+
+impl FromFile for Day3 {}
 impl Day<u32, u32> for Day3 {
     fn part1(&mut self) -> u32 {
         self.rucksacks
