@@ -13,7 +13,7 @@ The challenge is unique compared to other competitive programming challenges.
 
 The solutions are written in [Rust](https://www.rust-lang.org/) a high performant language.
 
-To get each day's solution, clone the repo: [akhildevelops/AdventofCode2022](https://github.com/akhildevelops/AdventofCode2022) and run respective command as shown below
+To get each day's solution, clone this repo: https://github.com/akhildevelops/AdventofCode2022 and run respective command as shown below
 
 | Day | Story | Solution | Part1 | Part2 | command to run |
 | --- | --- | --- | --- | --- | --- |
