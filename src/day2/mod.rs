@@ -1,5 +1,4 @@
-use crate::{Day, FromFile};
-use std::fs;
+use crate::{Day, FromFile, FromStr};
 pub struct Day2 {
     strategy: Vec<(u32, u32)>,
 }
@@ -33,11 +32,11 @@ impl Day2 {
             .sum::<i32>() as u32
     }
 }
-impl FromFile for Day2 {
-    fn from_input_file(path: &str) -> Self {
-        let contents = fs::read_to_string(path).unwrap();
-        Day2 {
-            strategy: contents
+
+impl FromStr for Day2 {
+    fn from_input(input: String) -> Self {
+        Self {
+            strategy: input
                 .strip_suffix("\n")
                 .unwrap()
                 .split("\n")
@@ -52,6 +51,8 @@ impl FromFile for Day2 {
         }
     }
 }
+
+impl FromFile for Day2 {}
 impl Day<u32, u32> for Day2 {
     fn part1(&mut self) -> u32 {
         self.states_score()

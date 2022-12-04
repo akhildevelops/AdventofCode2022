@@ -2,7 +2,7 @@ use crate::{Day, FromFile, FromStr};
 use std::collections::hash_map::RandomState;
 use std::collections::hash_set::Intersection;
 use std::collections::HashSet;
-pub struct Day3 {
+pub struct Day4 {
     rucksacks: Vec<String>,
 }
 
@@ -17,10 +17,10 @@ fn score_from_sets(sets: Intersection<char, RandomState>) -> u32 {
     .sum::<u32>()
 }
 
-impl FromStr for Day3 {
-    fn from_input(input: String) -> Self {
-        Self {
-            rucksacks: input
+impl FromStr for Day4 {
+    fn from_input(contents: String) -> Self {
+        Day4 {
+            rucksacks: contents
                 .strip_suffix("\n")
                 .unwrap()
                 .split("\n")
@@ -30,8 +30,8 @@ impl FromStr for Day3 {
     }
 }
 
-impl FromFile for Day3 {}
-impl Day<u32, u32> for Day3 {
+impl FromFile for Day4 {}
+impl Day<u32, u32> for Day4 {
     fn part1(&mut self) -> u32 {
         self.rucksacks
             .iter()
@@ -61,4 +61,11 @@ impl Day<u32, u32> for Day3 {
             })
             .sum()
     }
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_part1() {}
 }
