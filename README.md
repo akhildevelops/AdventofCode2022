@@ -13,9 +13,12 @@ The challenge is unique compared to other competitive programming challenges.
 
 The solutions are written in [Rust](https://www.rust-lang.org/) a high performant language.
 
-| Day | Story | Solution | Part1 | Part2 |
-| --- | --- | --- | --- | --- |
-| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1/mod.rs) 🚢 | ⭐ | ⭐  | 
-| Dec-2 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2/mod.rs) 🚢 | ⭐ | ⭐ |
-| Dec-3 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [Day3](./src/day3/mod.rs) 🚢 | ⭐ | ⭐ | 
+To get each day's solution, clone the repo: [akhildevelops/AdventofCode2022](https://github.com/akhildevelops/AdventofCode2022) and run respective command as shown below
+
+| Day | Story | Solution | Part1 | Part2 | command to run |
+| --- | --- | --- | --- | --- | --- |
+| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1/mod.rs) 🚢 | ⭐ | ⭐  | `cargo solve day1`
+| Dec-2 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day2`
+| Dec-3 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [Day3](./src/day3/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day3`
+| Dec-4 | [Camp Cleanup](https://adventofcode.com/2022/day/4) | [Day3](./src/day4/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day4`
 
