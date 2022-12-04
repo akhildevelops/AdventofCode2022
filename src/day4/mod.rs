@@ -1,30 +1,25 @@
 use crate::{Day, FromFile, FromStr};
-use std::collections::hash_map::RandomState;
-use std::collections::hash_set::Intersection;
-use std::collections::HashSet;
 pub struct Day4 {
-    rucksacks: Vec<String>,
-}
-
-fn score_from_sets(sets: Intersection<char, RandomState>) -> u32 {
-    sets.map(|x| {
-        if x.is_uppercase() {
-            27 + *x as u32 - 65
-        } else {
-            1 + *x as u32 - 97
-        }
-    })
-    .sum::<u32>()
+    sections: Vec<(i32, i32, i32, i32)>,
 }
 
 impl FromStr for Day4 {
     fn from_input(contents: String) -> Self {
         Day4 {
-            rucksacks: contents
+            sections: contents
                 .strip_suffix("\n")
-                .unwrap()
+                .unwrap_or(&contents)
                 .split("\n")
-                .map(|x| x.to_string())
+                .map(|x| {
+                    let sections = x
+                        .split(",")
+                        .flat_map(|x| x.split("-").map(|x| x.parse::<i32>().unwrap()))
+                        .collect::<Vec<i32>>();
+                    match &sections[..] {
+                        &[first, second, third, fourth] => (first, second, third, fourth),
+                        _ => unreachable!(),
+                    }
+                })
                 .collect(),
         }
     }
@@ -33,31 +28,26 @@ impl FromStr for Day4 {
 impl FromFile for Day4 {}
 impl Day<u32, u32> for Day4 {
     fn part1(&mut self) -> u32 {
-        self.rucksacks
+        self.sections
             .iter()
             .map(|x| {
-                let n = x.len();
-                let (rack_1, rack_2) = x.split_at(n / 2);
-                let rack1_itemtypes: HashSet<char> = HashSet::from_iter(rack_1.chars());
-                let rack2_itemtypes: HashSet<char> = HashSet::from_iter(rack_2.chars());
-                let common_types = rack1_itemtypes.intersection(&rack2_itemtypes);
-                score_from_sets(common_types)
+                if (x.0 <= x.2 && x.3 <= x.1) | (x.0 >= x.2 && x.3 >= x.1) {
+                    1
+                } else {
+                    0
+                }
             })
             .sum()
     }
     fn part2(&mut self) -> u32 {
-        self.rucksacks
-            .chunks(3)
+        self.sections
+            .iter()
             .map(|x| {
-                let rack1_itemtypes: HashSet<char> = HashSet::from_iter(x[0].chars());
-                let rack2_itemtypes: HashSet<char> = HashSet::from_iter(x[1].chars());
-                let rack3_itemtypes: HashSet<char> = HashSet::from_iter(x[2].chars());
-                let r1_r2: HashSet<char> = rack1_itemtypes
-                    .intersection(&rack2_itemtypes)
-                    .copied()
-                    .collect();
-                let r1_r2_r3 = r1_r2.intersection(&rack3_itemtypes);
-                score_from_sets(r1_r2_r3)
+                if (x.0 <= x.2 && x.2 <= x.1) | (x.0 >= x.2 && x.0 <= x.3) {
+                    1
+                } else {
+                    0
+                }
             })
             .sum()
     }
@@ -66,6 +56,21 @@ impl Day<u32, u32> for Day4 {
 mod tests {
     use super::*;
 
+    const input: &str = "2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8
+";
+
     #[test]
-    fn test_part1() {}
+    fn test_part1() {
+        assert_eq!(Day4::from_input(input.to_string()).part1(), 2)
+    }
+
+    #[test]
+    fn test_part2() {
+        assert_eq!(Day4::from_input(input.to_string()).part2(), 4)
+    }
 }
