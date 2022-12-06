@@ -21,10 +21,16 @@ where
 pub const INPUT_FILE_NAME: &str = "input.txt";
 
 mod day1;
-mod day2;
-mod day3;
-mod day4;
 pub use day1::Day1;
+
+mod day2;
 pub use day2::Day2;
+
+mod day3;
 pub use day3::Day3;
+
+mod day4;
 pub use day4::Day4;
+
+mod day5;
+pub use day5::Day5;
