@@ -15,11 +15,12 @@ The solutions are written in [Rust](https://www.rust-lang.org/) a high performan
 
 To get each day's solution, clone this repo: https://github.com/akhildevelops/AdventofCode2022 and run respective command as shown below
 
-| Day | Story | Solution | Part1 | Part2 | command to run |
-| --- | --- | --- | --- | --- | --- |
-| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1/mod.rs) 🚢 | ⭐ | ⭐  | `cargo solve day1`
-| Dec-2 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day2`
-| Dec-3 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [Day3](./src/day3/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day3`
-| Dec-4 | [Camp Cleanup](https://adventofcode.com/2022/day/4) | [Day4](./src/day4/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day4`
-| Dec-5 | [Supply Stacks](https://adventofcode.com/2022/day/5) | [Day5](./src/day5/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day5`
+| Day | Story | Solution | Part1 | Part2 | command to run | challenge level |
+| --- | --- | --- | --- | --- | --- | --- |
+| Dec-1 | [Calorie Counting](https://adventofcode.com/2022/day/1) | [Day1](./src/day1/mod.rs) 🚢 | ⭐ | ⭐  | `cargo solve day1` | 🧗
+| Dec-2 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | [Day2](./src/day2/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day2`|🧗 🧗
+| Dec-3 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [Day3](./src/day3/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day3`| 🧗🧗
+| Dec-4 | [Camp Cleanup](https://adventofcode.com/2022/day/4) | [Day4](./src/day4/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day4`|🧗🧗
+| Dec-5 | [Supply Stacks](https://adventofcode.com/2022/day/5) | [Day5](./src/day5/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day5`| 🧗🧗🧗
+| Dec-5 | [Tuning Trouble](https://adventofcode.com/2022/day/6) | [Day6](./src/day6/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day6`|🧗
 
