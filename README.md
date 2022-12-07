@@ -22,5 +22,5 @@ To get each day's solution, clone this repo: https://github.com/akhildevelops/Ad
 | Dec-3 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | [Day3](./src/day3/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day3`| 🧗🧗| Sets to find common elements
 | Dec-4 | [Camp Cleanup](https://adventofcode.com/2022/day/4) | [Day4](./src/day4/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day4`|🧗🧗| Check if an element is present in the boundaries.
 | Dec-5 | [Supply Stacks](https://adventofcode.com/2022/day/5) | [Day5](./src/day5/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day5`| 🧗🧗🧗 | Parse text into columns and borrow checker
-| Dec-5 | [Tuning Trouble](https://adventofcode.com/2022/day/6) | [Day6](./src/day6/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day6`|🧗| Find non repeating chars in a string.
+| Dec-6 | [Tuning Trouble](https://adventofcode.com/2022/day/6) | [Day6](./src/day6/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day6`|🧗| Find non repeating chars in a string.
 
