@@ -1,4 +1,5 @@
 use crate::{Day, FromFile, FromStr as CrateFromStr};
+
 use std::str::FromStr;
 
 pub struct Day10(Vec<OP>);
