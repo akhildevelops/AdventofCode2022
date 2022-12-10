@@ -28,9 +28,9 @@ To get each day's solution, clone this repo: https://github.com/akhildevelops/Ad
 | Dec-9 | [Rope Bridge](https://adventofcode.com/2022/day/9) | [Day9](./src/day9/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day9`|🧗🧗| Hashets and iterators
 | Dec-10 | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10) | [Day10](./src/day10/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day10`|🧗*1.5| Code comprehension >>> Code optimization
 
-For contributors/forkers:
+## For Contributors / Forkers:
 
-Create a new project for a particular day run `cargo setup <name>`
+To create a new project for a particular day run `cargo setup <name>`
 
 Ex: To setup day15 run: `cargo setup day15` It creates below structure:
 ```
