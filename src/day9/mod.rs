@@ -1,71 +1,80 @@
 use crate::{Day, FromFile, FromStr};
 
 pub struct Day9 {
-    stream: Vec<Dirs>,
-}
-#[derive(Debug)]
-enum Dirs {
-    H(i32),
-    V(i32),
-}
-
-impl FromStr for Dirs {
-    fn from_input(input: String) -> Self {
-        let mut dir_steps = input.split(' ');
-        let dir = dir_steps.next().unwrap();
-        let steps = dir_steps.next().unwrap().parse().unwrap();
-        match dir {
-            "R" => Self::H(steps),
-            "L" => Self::H(-1 * steps),
-            "U" => Self::V(steps),
-            "D" => Self::V(-1 * steps),
-            _ => unreachable!(),
-        }
-    }
+    stream: String,
 }
 
 impl FromStr for Day9 {
     fn from_input(contents: String) -> Self {
-        Self {
-            stream: contents
-                .lines()
-                .into_iter()
-                .map(|x| Dirs::from_input(x.to_string()))
-                .collect(),
-        }
+        Self { stream: contents }
+    }
+}
+
+use std::collections::HashSet;
+
+type Point = (i32, i32);
+
+fn lead(direction: &str, head: &mut Point) {
+    match direction {
+        "R" => head.0 += 1,
+        "L" => head.0 -= 1,
+        "D" => head.1 += 1,
+        "U" => head.1 -= 1,
+        _ => panic!("{direction}"),
+    };
+}
+
+fn follow(leader: Point, follower: &mut Point) {
+    let delta = (leader.0 - follower.0, leader.1 - follower.1);
+    if delta.0.abs() == 2 || delta.1.abs() == 2 {
+        follower.0 += delta.0.signum();
+        follower.1 += delta.1.signum();
     }
 }
 
 impl FromFile for Day9 {}
 impl Day<u32, u32> for Day9 {
     fn part1(&mut self) -> u32 {
-        self.stream
-            .iter()
-            .fold(((0i32, 0i32), 0), |x, y| {
-                let z = match y {
-                    Dirs::H(z) => {
-                        if z.abs() - x.0 .0.abs() <= 1 {
-                            ((z + x.0 .0, x.0 .1), x.1)
-                        } else {
-                            let dir = z / z.abs();
-                            ((dir, 0), z.abs() - x.0 .0.abs() - 1 + x.1)
-                        }
-                    }
-                    Dirs::V(z) => {
-                        if z.abs() - x.0 .1.abs() <= 1 {
-                            ((x.0 .0, z + x.0 .1), x.1)
-                        } else {
-                            let dir = z / z.abs();
-                            ((0, dir), x.1 + z.abs() - x.0 .1.abs() - 1)
-                        }
-                    }
-                };
-                z
-            })
-            .1 as u32
+        let mut rope = vec![(0, 0); 2];
+        let mut visited = HashSet::from([(0, 0)]);
+
+        for line in self.stream.lines() {
+            let mut split = line.split(' ');
+            let direction = split.next().unwrap();
+            let count: i32 = split.next().unwrap().parse().unwrap();
+
+            for _ in 0..count {
+                lead(direction, &mut rope[0]);
+
+                for i in 1..rope.len() {
+                    follow(rope[i - 1], &mut rope[i]);
+                }
+
+                visited.insert(*rope.last().unwrap());
+            }
+        }
+        visited.len() as u32
     }
     fn part2(&mut self) -> u32 {
-        10
+        let mut rope = vec![(0, 0); 10];
+        let mut visited = HashSet::from([(0, 0)]);
+
+        for line in self.stream.lines() {
+            let mut split = line.split(' ');
+            let direction = split.next().unwrap();
+            let count: i32 = split.next().unwrap().parse().unwrap();
+
+            for _ in 0..count {
+                lead(direction, &mut rope[0]);
+
+                for i in 1..rope.len() {
+                    follow(rope[i - 1], &mut rope[i]);
+                }
+
+                visited.insert(*rope.last().unwrap());
+            }
+        }
+        visited.len() as u32
     }
 }
 
@@ -88,7 +97,7 @@ R 2";
     }
     #[test]
     fn test_part1() {
-        assert_eq!(Day9::from_input(INPUT.to_string()).part1(), 12)
+        assert_eq!(Day9::from_input(INPUT.to_string()).part1(), 13)
     }
 
     #[test]
