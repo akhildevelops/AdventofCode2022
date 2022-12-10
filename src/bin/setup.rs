@@ -1,20 +1,23 @@
+use std::env::args;
 use std::fs;
 use std::io::Write;
+
 const BINDIR: &str = "./src/bin";
 const LIBRS: &str = "./src/lib.rs";
 const SRC: &str = "./src";
+
 fn main() {
-    let day = "day11";
+    let day = args().nth(1).unwrap();
     let day_captialize = day[..1].to_uppercase() + &day[1..];
     // Create binary file
     let bin_content = format!(
         "use adventofcode_2022::*;
-    fn main() {{
-        // {day} Solution
-        let mut day = {}::from_input_file(&format!(\"./src/{day}/{{}}\", INPUT_FILE_NAME));
-        println!(\"part-1:{{}},part-2:{{}}\", day.part1(), day.part2());
-    }}
-    ",
+fn main() {{
+    // {day} Solution
+    let mut day = {}::from_input_file(&format!(\"./src/{day}/{{}}\", INPUT_FILE_NAME));
+    println!(\"part-1:{{}},part-2:{{}}\", day.part1(), day.part2());
+}}
+",
         &day_captialize
     );
     let mut file = fs::File::create(format!("{BINDIR}/{day}.rs")).unwrap();
