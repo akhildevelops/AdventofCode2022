@@ -1,6 +1,5 @@
 use crate::{Day, FromFile, FromStr as CrateFromStr};
 use std::str::FromStr;
-// Credits: https://github.com/schubart/AdventOfCode_2022_Rust/blob/master/day09/src/lib.rs
 
 pub struct Day10(Vec<OP>);
 
