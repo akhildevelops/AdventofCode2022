@@ -1,5 +1,7 @@
 use crate::{Day, FromFile, FromStr};
 
+// Credits: https://github.com/schubart/AdventOfCode_2022_Rust/blob/master/day09/src/lib.rs
+
 pub struct Day9 {
     stream: String,
 }
