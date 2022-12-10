@@ -1,10 +1,10 @@
 use crate::{Day, FromFile, FromStr};
 #[derive(Debug, Clone)]
-pub struct Day8 {
+pub struct Day9 {
     stream: Vec<Vec<u32>>,
 }
 
-impl Day8 {
+impl Day9 {
     fn rows(&self) -> usize {
         self.stream.len()
     }
@@ -13,7 +13,7 @@ impl Day8 {
     }
 }
 
-impl FromStr for Day8 {
+impl FromStr for Day9 {
     fn from_input(contents: String) -> Self {
         Self {
             stream: contents
@@ -25,8 +25,8 @@ impl FromStr for Day8 {
     }
 }
 
-impl FromFile for Day8 {}
-impl Day<u32, u32> for Day8 {
+impl FromFile for Day9 {}
+impl Day<u32, u32> for Day9 {
     fn part1(&mut self) -> u32 {
         let rows = self.rows();
         let cols = self.cols();
@@ -88,11 +88,11 @@ impl Day<u32, u32> for Day8 {
                             .clone()
                             .filter(|(index, _)| *index < row)
                             .rev()
-                            .take_while(|(_, x)| *x < point)
+                            .take_while(|(index, x)| *x < point)
                             .count();
                         let mut down = vertical
                             .filter(|(index, _)| *index > row)
-                            .take_while(|(_, x)| *x < point)
+                            .take_while(|(index, x)| *x < point)
                             .count();
                         if row != 1 {
                             top = *[top + 1, row].iter().min().unwrap();
@@ -129,15 +129,15 @@ mod tests {
 
     #[test]
     fn test_moves_stack() {
-        Day8::from_input(INPUT.to_string());
+        Day9::from_input(INPUT.to_string());
     }
     #[test]
     fn test_part1() {
-        assert_eq!(Day8::from_input(INPUT.to_string()).part1(), 21)
+        assert_eq!(Day9::from_input(INPUT.to_string()).part1(), 21)
     }
 
     #[test]
     fn test_part2() {
-        assert_eq!(Day8::from_input(INPUT.to_string()).part2(), 8)
+        assert_eq!(Day9::from_input(INPUT.to_string()).part2(), 8)
     }
 }

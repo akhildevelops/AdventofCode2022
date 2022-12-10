@@ -1,5 +1,4 @@
 use crate::{Day, FromFile, FromStr};
-use std::fmt::Display;
 #[derive(Debug, Clone)]
 pub struct Day6 {
     stream: Vec<char>,
@@ -54,19 +53,19 @@ impl Day<u32, u32> for Day6 {
 mod tests {
     use super::*;
 
-    const input: &str = "nppdvjthqldpwncqszvftbrmjlhg";
+    const INPUT: &str = "nppdvjthqldpwncqszvftbrmjlhg";
 
     #[test]
     fn test_moves_stack() {
-        Day6::from_input(input.to_string());
+        Day6::from_input(INPUT.to_string());
     }
     #[test]
     fn test_part1() {
-        assert_eq!(Day6::from_input(input.to_string()).part1(), 6)
+        assert_eq!(Day6::from_input(INPUT.to_string()).part1(), 6)
     }
 
     #[test]
     fn test_part2() {
-        assert_eq!(Day6::from_input(input.to_string()).part2(), 23)
+        assert_eq!(Day6::from_input(INPUT.to_string()).part2(), 23)
     }
 }

@@ -24,5 +24,5 @@ To get each day's solution, clone this repo: https://github.com/akhildevelops/Ad
 | Dec-5 | [Supply Stacks](https://adventofcode.com/2022/day/5) | [Day5](./src/day5/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day5`| 🧗🧗🧗 | Parse text into columns and borrow checker
 | Dec-6 | [Tuning Trouble](https://adventofcode.com/2022/day/6) | [Day6](./src/day6/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day6`|🧗| Find non repeating chars in a string.
 | Dec-7 | [No Space Left On Device](https://adventofcode.com/2022/day/7) |  |  |  | |  |
-| Dec-8 | [Treetop Tree House](https://adventofcode.com/2022/day/8) | [Day8](./src/day8/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day8`|🧗🧗| Grid type data structures
+| Dec-8 | [Treetop Tree House](https://adventofcode.com/2022/day/8) | [Day8](./src/day8/mod.rs) 🚢 | ⭐ | ⭐ | `cargo solve day8`|🧗🧗| Grid type data structures + create references, not to be owned by closures
 
