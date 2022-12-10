@@ -47,5 +47,5 @@ pub use day9::Day9;
 mod day10;
 pub use day10::Day10;
 
-mod template;
-pub use template::Template;
+mod day15;
+pub use day15::Day15;
