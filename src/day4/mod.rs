@@ -44,7 +44,7 @@ impl Day<u32, u32> for Day4 {
 mod tests {
     use super::*;
 
-    const input: &str = "2-4,6-8
+    const INPUT: &str = "2-4,6-8
 2-3,4-5
 5-7,7-9
 2-8,3-7
@@ -54,11 +54,11 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert_eq!(Day4::from_input(input.to_string()).part1(), 2)
+        assert_eq!(Day4::from_input(INPUT.to_string()).part1(), 2)
     }
 
     #[test]
     fn test_part2() {
-        assert_eq!(Day4::from_input(input.to_string()).part2(), 4)
+        assert_eq!(Day4::from_input(INPUT.to_string()).part2(), 4)
     }
 }

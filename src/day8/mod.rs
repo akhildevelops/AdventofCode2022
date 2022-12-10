@@ -1,5 +1,4 @@
 use crate::{Day, FromFile, FromStr};
-use std::fmt::Display;
 #[derive(Debug, Clone)]
 pub struct Day8 {
     stream: Vec<Vec<u32>>,
@@ -35,7 +34,10 @@ impl Day<u32, u32> for Day8 {
             .into_iter()
             .flat_map(|row| {
                 (1..cols - 1).into_iter().map({
-                    let values = &self; // only the pointer moves into closure.
+                    let values = &self;
+                    // all the values will be owned by closure (|col|{}) after move i.e, values, row.
+                    // move is created for owning row by closure otherwise there's a possibility that |col|{} might outlive row value.
+                    // For more check: https://stackoverflow.com/a/70286326/19483429
                     move |col| {
                         let point = values.stream[row][col];
                         let left = values.stream[row][..col].iter().all(|x| *x < point);
@@ -86,11 +88,11 @@ impl Day<u32, u32> for Day8 {
                             .clone()
                             .filter(|(index, _)| *index < row)
                             .rev()
-                            .take_while(|(index, x)| *x < point)
+                            .take_while(|(_, x)| *x < point)
                             .count();
                         let mut down = vertical
                             .filter(|(index, _)| *index > row)
-                            .take_while(|(index, x)| *x < point)
+                            .take_while(|(_, x)| *x < point)
                             .count();
                         if row != 1 {
                             top = *[top + 1, row].iter().min().unwrap();
@@ -119,7 +121,7 @@ impl Day<u32, u32> for Day8 {
 mod tests {
     use super::*;
 
-    const input: &str = "30373
+    const INPUT: &str = "30373
 25512
 65332
 33549
@@ -127,15 +129,15 @@ mod tests {
 
     #[test]
     fn test_moves_stack() {
-        Day8::from_input(input.to_string());
+        Day8::from_input(INPUT.to_string());
     }
     #[test]
     fn test_part1() {
-        assert_eq!(Day8::from_input(input.to_string()).part1(), 21)
+        assert_eq!(Day8::from_input(INPUT.to_string()).part1(), 21)
     }
 
     #[test]
     fn test_part2() {
-        assert_eq!(Day8::from_input(input.to_string()).part2(), 8)
+        assert_eq!(Day8::from_input(INPUT.to_string()).part2(), 8)
     }
 }

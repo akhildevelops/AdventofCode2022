@@ -40,3 +40,6 @@ pub use day6::Day6;
 
 mod day8;
 pub use day8::Day8;
+
+mod day9;
+pub use day9::Day9;
