@@ -104,6 +104,6 @@ R 2";
 
     #[test]
     fn test_part2() {
-        assert_eq!(Day9::from_input(INPUT.to_string()).part2(), 8)
+        assert_eq!(Day9::from_input(INPUT.to_string()).part2(), 1)
     }
 }
