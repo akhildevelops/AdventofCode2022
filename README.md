@@ -50,4 +50,4 @@ src/
 
 Validate unit tests by running`cargo test day<n>`
 
-Rebuild binaries for every change by running `` cargo watch -x `test -- day<n>` `` 
+Rebuild binaries for every change by running `cargo watch -x 'test -- day<n>'`
